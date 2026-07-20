@@ -4,8 +4,8 @@
 
 ## Context
 
-ATA Rénov'Bat was an independent electrician business (Atallah Hassani, Vallauris,
-Alpes-Maritimes, active since 2011, now closed). Its site was a React 17 / MUI
+ATA Rénov'Bat was an independent electrician business (Atallah Hassani, active since 2011,
+now closed; the artisan is now based in Juan-les-Pins, no longer Vallauris). Its site was a React 17 / MUI
 "theFront" template deployed on a VPS that is now offline. The owner of this rebuild
 (Pierre) wants the same content and feeling in a modern 2026 design, drastically
 simplified, hosted free on GitHub Pages with redeploy-on-push.
@@ -41,7 +41,7 @@ sources — canonical text content), Wayback Machine (real photos), `social.png`
 1. **Nav** (fixed): real ATA logo (SVG recovered from `src/svg/logo/Logo.js`) +
    links Prestations / À propos / Réalisations / Avis / Contact + `tel:` CTA
    button "07 58 50 51 42".
-2. **Hero**: eyebrow `ÉLECTRICITÉ GÉNÉRALE · VALLAURIS`; headline "Nous assurons
+2. **Hero**: eyebrow `ÉLECTRICITÉ GÉNÉRALE · JUAN-LES-PINS`; headline "Nous assurons
    votre installation électrique de sa **[conception. / mise aux normes. /
    maintenance. / modernisation.]**" (typed loop); subline "Nous avons
    l'expérience, le personnel et les ressources…"; CTAs "Nos réalisations"
@@ -67,11 +67,11 @@ sources — canonical text content), Wayback Machine (real photos), `social.png`
    6 real Google reviews verbatim (Mathieu Parigot, Jacob Nielsen, Marc Pey,
    Stephanie Froc, Jeremy Lemercier, Pierre Cangemi) with initial-letter avatars.
 8. **Contact**: cards — ☎ 07 58 50 51 42 (`tel:`), ✉ ata.renov.bat@outlook.fr
-   (`mailto:`), 📍 56 Av. de la Liberté, 06220 Vallauris (+ "Itinéraire" link to
-   Google Maps — no embedded map iframe). WhatsApp CTA. Simple form (nom,
+   (`mailto:`), 📍 Juan-les-Pins — Antibes (06160), interventions dans les
+   Alpes-Maritimes (no street address published, no map iframe). WhatsApp CTA. Simple form (nom,
    téléphone, message) with success state, not wired — Formspree-ready.
 9. **Footer**: logo, anchor nav, contact, legal line "© 2026 ATA Rénov'Bat ·
-   Vallauris".
+   Juan-les-Pins".
 10. **Floating WhatsApp button** → `https://wa.me/33670634666` (replaces the
     React widget).
 11. **404.html**: minimal, same visual language, link back home.
