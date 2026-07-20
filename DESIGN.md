@@ -63,9 +63,9 @@ components:
     rounded: "{rounded.sm}"
     padding: "13px 24px"
   card:
-    backgroundColor: "#FFFFFF8C"
-    rounded: "{rounded.md}"
-    padding: "26px 24px"
+    backgroundColor: "#00000000"
+    rounded: "0px"
+    padding: "24px 0 0"
   input:
     backgroundColor: "#FFFFFF"
     textColor: "{colors.ink}"
@@ -86,7 +86,9 @@ The system explicitly rejects: the generic template look of the old site, interc
 **Key Characteristics:**
 - Paper-white drafting surface with a faint 72px grid
 - One accent: the original brand green, used for action and emphasis only
-- Photos live inside bordered "figure" frames with mono captions (Fig. 00…)
+- Content sits openly on the paper, structured by hairline rules — almost no boxes
+- Two framed "document" figures only (hero, à propos) with mono captions
+- Réalisations is an animated masonry of unframed photographs
 - Giant outline section numerals drifting on scroll
 - Grotesk display type over a workmanlike body sans, mono for labels
 
@@ -101,12 +103,13 @@ A restrained paper-and-ink base that lets the single chantier green read as sign
 - **Paper** (#F7F6F2): the body surface, overlaid with a 1px drafting grid at 2.5% ink.
 - **Ink** (#14181A): headings, body emphasis, the nav CTA, the footer surface.
 - **Soft Ink** (#4A5258): body and caption text on paper (≈7:1 contrast — never lighten it).
-- **Line** (#14181A at 16%): every border — figure frames, cards, separators. Hairline only.
+- **Line** (#14181A at 16%): every rule — figure frames, list separators, form fields. Hairline only.
 - **Green Wash** (#03A678 at 8%): tinted background for the MAAF callout and contact icons.
 
 ### Named Rules
 **The One Green Rule.** Green appears only where it means something: an action, an active state, a key term. If a screen is more than ~10% green, it has stopped being signal.
 **The Hairline Rule.** All structure is drawn with 1px lines at 16% ink. No shadows-as-borders, no thick strokes, no side-stripes.
+**The Open Paper Rule.** Content is not boxed. Services, reviews and contact rows sit directly on the paper, separated by hairline top-rules. Full borders are reserved for exactly two framed figures (hero, à propos), form fields, and buttons. The owner's verdict on bordered card grids: "too much boxes, feels way too AI generated".
 
 ## 3. Typography
 
@@ -128,7 +131,7 @@ A restrained paper-and-ink base that lets the single chantier green read as sign
 
 ## 4. Elevation
 
-Essentially flat: depth is conveyed by hairline borders, background tints (white 55% card fills over paper) and the drafting grid, not by shadows. Exactly two shadows exist — the WhatsApp float (`0 10px 26px -8px` green at 65%, it must read as touchable above everything) and none elsewhere at rest. The dark footer is tonal inversion, not elevation.
+Essentially flat: depth is conveyed by hairline rules and the drafting grid, not by shadows or fills. Exactly two shadows exist — the WhatsApp float (`0 10px 26px -8px` green at 65%, it must read as touchable above everything) and none elsewhere at rest. The dark footer is tonal inversion, not elevation.
 
 ### Named Rules
 **The Flat Dossier Rule.** Surfaces sit on the paper, they do not hover over it. If a card casts a shadow, it's a bug.
@@ -142,12 +145,10 @@ Essentially flat: depth is conveyed by hairline borders, background tints (white
 - **Outline:** 1px ink border, transparent fill; hover inverts to ink fill.
 - **Hover / Focus:** color shifts only, 0.2s; no scale, no glow.
 
-### Cards / Containers
-- **Corner Style:** 6px.
-- **Background:** white at 55% over paper; the MAAF callout uses Green Wash.
-- **Shadow Strategy:** none (Flat Dossier Rule).
-- **Border:** 1px Line, all four sides.
-- **Internal Padding:** 24–28px.
+### Open list items (services, reviews, contact rows)
+- **Structure:** hairline top-rule (1px Line), no background, no side/bottom borders, no radius.
+- **Internal spacing:** 24px below the rule; content directly on paper.
+- **Emphasis variant:** the MAAF callout uses a 1px Ink top-rule (heavier voice, same grammar).
 
 ### Inputs / Fields
 - **Style:** segmented group — fields share collapsed 1px borders, only the group's outer corners round (5px); white fill.
@@ -156,8 +157,11 @@ Essentially flat: depth is conveyed by hairline borders, background tints (white
 ### Navigation
 - Fixed, paper at 85% with backdrop blur, hairline bottom border. Logo left, Archivo 14px links center (hidden ≤1020px), ink phone-CTA right. Anchor scrolling glides via Lenis.
 
-### The Figure Frame (signature)
-Every photograph sits in a bordered frame: image (saturation 0.82, contrast 1.04), hairline top-border caption bar with mono `Fig. 0X` label. Images scale in from 1.09 inside a clipped wrapper on reveal.
+### The Figure Frame (hero and à propos only)
+The two "document" photographs sit in a bordered frame: image (saturation 0.82, contrast 1.04), hairline caption bar with mono `Fig. 0X` label. Images scale in from 1.09 inside a clipped wrapper on reveal.
+
+### The Masonry Gallery (signature)
+Réalisations is a 3-column CSS masonry (`columns`) of unframed photos at varied aspect ratios (3/4, 4/5, 4/3), 6px radius, 36px vertical rhythm. Each item reveals on scroll and drifts at a per-column parallax speed; hover zooms the photo 1.045 inside its clipped wrapper. Collapses to 2 columns ≤1020px, 1 column ≤620px.
 
 ## 6. Do's and Don'ts
 
@@ -174,4 +178,5 @@ Every photograph sits in a bordered frame: image (saturation 0.82, contrast 1.04
 - **Don't** drift toward wellness-cream softness: no serif italics, no warm beige drench, no rounded-pill everything.
 - **Don't** introduce a second accent color or use green decoratively (One Green Rule).
 - **Don't** add shadows to resting surfaces (Flat Dossier Rule) or side-stripe borders thicker than 1px.
+- **Don't** box content into bordered cards — hairline top-rules only (Open Paper Rule).
 - **Don't** re-label photos with provenance badges (réel/illustration) — the owner removed them deliberately.

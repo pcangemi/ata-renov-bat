@@ -1,35 +1,151 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-20T15:30:00+02:00",
+  "generatedAt": "2026-07-20T17:45:00+02:00",
   "title": "Design System: ATA Rénov'Bat",
   "extensions": {
     "colorMeta": {
-      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#F7F6F2", "tonalRamp": ["#26251F", "#403E36", "#5C5A50", "#7B786C", "#9B988B", "#BCB9AC", "#DDDACF", "#F7F6F2"] },
-      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#14181A", "tonalRamp": ["#14181A", "#2A3033", "#42494D", "#5C6468", "#778085", "#939CA1", "#B1B9BD", "#D9DDDF"] },
-      "ink-soft": { "role": "neutral", "displayName": "Soft Ink", "canonical": "#4A5258", "tonalRamp": ["#22262A", "#343B40", "#4A5258", "#616A71", "#79838B", "#939DA5", "#AEB7BE", "#D2D8DC"] },
-      "chantier-green": { "role": "primary", "displayName": "Chantier Green", "canonical": "#03A678", "tonalRamp": ["#013D2C", "#02543D", "#026B4E", "#028763", "#03A678", "#2FBC90", "#6FD2B0", "#B5EAD8"] },
-      "chantier-green-deep": { "role": "primary", "displayName": "Chantier Green Deep", "canonical": "#028763", "tonalRamp": ["#013D2C", "#02543D", "#026B4E", "#028763", "#03A678", "#2FBC90", "#6FD2B0", "#B5EAD8"] }
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#F7F6F2",
+        "tonalRamp": [
+          "#26251F",
+          "#403E36",
+          "#5C5A50",
+          "#7B786C",
+          "#9B988B",
+          "#BCB9AC",
+          "#DDDACF",
+          "#F7F6F2"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#14181A",
+        "tonalRamp": [
+          "#14181A",
+          "#2A3033",
+          "#42494D",
+          "#5C6468",
+          "#778085",
+          "#939CA1",
+          "#B1B9BD",
+          "#D9DDDF"
+        ]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Soft Ink",
+        "canonical": "#4A5258",
+        "tonalRamp": [
+          "#22262A",
+          "#343B40",
+          "#4A5258",
+          "#616A71",
+          "#79838B",
+          "#939DA5",
+          "#AEB7BE",
+          "#D2D8DC"
+        ]
+      },
+      "chantier-green": {
+        "role": "primary",
+        "displayName": "Chantier Green",
+        "canonical": "#03A678",
+        "tonalRamp": [
+          "#013D2C",
+          "#02543D",
+          "#026B4E",
+          "#028763",
+          "#03A678",
+          "#2FBC90",
+          "#6FD2B0",
+          "#B5EAD8"
+        ]
+      },
+      "chantier-green-deep": {
+        "role": "primary",
+        "displayName": "Chantier Green Deep",
+        "canonical": "#028763",
+        "tonalRamp": [
+          "#013D2C",
+          "#02543D",
+          "#026B4E",
+          "#028763",
+          "#03A678",
+          "#2FBC90",
+          "#6FD2B0",
+          "#B5EAD8"
+        ]
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Hero headline only, with the typed green rotating word." },
-      "headline": { "displayName": "Headline", "purpose": "Section titles." },
-      "body": { "displayName": "Body", "purpose": "All prose, Soft Ink on Paper." },
-      "label": { "displayName": "Label (mono)", "purpose": "Documentary apparatus: eyebrows, figure captions, footer heads. Uppercase, +0.14em." }
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headline only, with the typed green rotating word."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All prose, Soft Ink on Paper."
+      },
+      "label": {
+        "displayName": "Label (mono)",
+        "purpose": "Documentary apparatus: eyebrows, figure captions, footer heads. Uppercase, +0.14em."
+      }
     },
     "shadows": [
-      { "name": "whatsapp-float", "value": "0 10px 26px -8px rgba(3,166,120,.65)", "purpose": "The only shadow in the system; keeps the WhatsApp float touchable above content." }
+      {
+        "name": "whatsapp-float",
+        "value": "0 10px 26px -8px rgba(3,166,120,.65)",
+        "purpose": "The only shadow in the system; keeps the WhatsApp float touchable above content."
+      }
     ],
     "motion": [
-      { "name": "reveal", "value": "GSAP power3.out, y:28→0, opacity 0→1, ~1s, ScrollTrigger 'top 87%'", "purpose": "Standard scroll reveal for single elements." },
-      { "name": "group-stagger", "value": "GSAP power3.out, stagger 0.08", "purpose": "Card/work/review grids reveal as a staggered set." },
-      { "name": "figure-zoom", "value": "GSAP power2.out, scale 1.09→1, 1.3s", "purpose": "Photo settles into its figure frame on reveal." },
-      { "name": "numeral-drift", "value": "yPercent -35, scrub", "purpose": "Outline section numerals parallax on scroll." },
-      { "name": "marquee", "value": "CSS keyframes, translateX loop 32s linear", "purpose": "Partner logo strip; paused on hover, off under reduced motion." },
-      { "name": "lenis", "value": "lerp 0.09, smoothWheel", "purpose": "Global scroll smoothing; anchors glide via lenis.scrollTo offset -72." }
+      {
+        "name": "reveal",
+        "value": "GSAP power3.out, y:28→0, opacity 0→1, ~1s, ScrollTrigger 'top 87%'",
+        "purpose": "Standard scroll reveal for single elements."
+      },
+      {
+        "name": "group-stagger",
+        "value": "GSAP power3.out, stagger 0.08",
+        "purpose": "Card/work/review grids reveal as a staggered set."
+      },
+      {
+        "name": "figure-zoom",
+        "value": "GSAP power2.out, scale 1.09→1, 1.3s",
+        "purpose": "Photo settles into its figure frame on reveal."
+      },
+      {
+        "name": "numeral-drift",
+        "value": "yPercent -35, scrub",
+        "purpose": "Outline section numerals parallax on scroll."
+      },
+      {
+        "name": "marquee",
+        "value": "CSS keyframes, translateX loop 32s linear",
+        "purpose": "Partner logo strip; paused on hover, off under reduced motion."
+      },
+      {
+        "name": "lenis",
+        "value": "lerp 0.09, smoothWheel",
+        "purpose": "Global scroll smoothing; anchors glide via lenis.scrollTo offset -72."
+      }
     ],
     "breakpoints": [
-      { "name": "tablet", "value": "1020px" },
-      { "name": "mobile", "value": "620px" }
+      {
+        "name": "tablet",
+        "value": "1020px"
+      },
+      {
+        "name": "mobile",
+        "value": "620px"
+      }
     ]
   },
   "components": [
@@ -74,12 +190,12 @@
       "css": ".ds-fig{border:1px solid rgba(20,24,26,.16);border-radius:6px;overflow:hidden;background:#fff;width:240px;margin:0}.ds-fig-ph{display:block;overflow:hidden}.ds-fig-cap{display:flex;justify-content:space-between;padding:10px 14px;border-top:1px solid rgba(20,24,26,.16);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#4A5258;background:#F7F6F2}"
     },
     {
-      "name": "Service Card",
+      "name": "Service Item (open)",
       "kind": "card",
       "refersTo": "card",
-      "description": "Prestations grid card — mono index, title, one-line description.",
+      "description": "Prestations list item — hairline top-rule, no box.",
       "html": "<div class=\"ds-card\"><span class=\"ds-card-idx\">S.02</span><h3 class=\"ds-card-title\">Mise aux normes</h3><p class=\"ds-card-body\">Mise en conformité de vos installations électriques dans les Alpes-Maritimes.</p></div>",
-      "css": ".ds-card{border:1px solid rgba(20,24,26,.16);border-radius:6px;padding:26px 24px;background:rgba(255,255,255,.55);width:260px;font-family:Archivo,system-ui,sans-serif}.ds-card-idx{display:block;margin-bottom:14px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#028763}.ds-card-title{font-family:'Space Grotesk',sans-serif;font-size:21px;font-weight:500;letter-spacing:-.02em;margin:0 0 10px;color:#14181A}.ds-card-body{font-size:14.5px;color:#4A5258;margin:0;line-height:1.6}"
+      "css": ".ds-card{border-top:1px solid rgba(20,24,26,.16);padding:24px 0 0;width:260px;font-family:Archivo,system-ui,sans-serif}.ds-card-idx{display:block;margin-bottom:14px;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#028763}.ds-card-title{font-family:'Space Grotesk',sans-serif;font-size:21px;font-weight:500;letter-spacing:-.02em;margin:0 0 10px;color:#14181A}.ds-card-body{font-size:14.5px;color:#4A5258;margin:0;line-height:1.6}"
     }
   ],
   "narrative": {
@@ -88,15 +204,36 @@
     "keyCharacteristics": [
       "Paper-white drafting surface with a faint 72px grid",
       "One accent: the original brand green, used for action and emphasis only",
-      "Photos live inside bordered figure frames with mono captions",
-      "Giant outline section numerals drifting on scroll",
+      "Content sits openly on the paper, structured by hairline rules — almost no boxes",
+      "Two framed document figures only (hero, à propos); réalisations is an animated masonry",
       "Grotesk display type over a workmanlike body sans, mono for labels"
     ],
     "rules": [
-      { "name": "The One Green Rule", "body": "Green appears only where it means something: an action, an active state, a key term. If a screen is more than ~10% green, it has stopped being signal.", "section": "colors" },
-      { "name": "The Hairline Rule", "body": "All structure is drawn with 1px lines at 16% ink. No shadows-as-borders, no thick strokes, no side-stripes.", "section": "colors" },
-      { "name": "The Apparatus Rule", "body": "Mono uppercase is reserved for the documentary apparatus — numbering, captions, column labels. Never for persuasive copy or CTAs.", "section": "typography" },
-      { "name": "The Flat Dossier Rule", "body": "Surfaces sit on the paper, they do not hover over it. If a card casts a shadow, it's a bug.", "section": "elevation" }
+      {
+        "name": "The One Green Rule",
+        "body": "Green appears only where it means something: an action, an active state, a key term. If a screen is more than ~10% green, it has stopped being signal.",
+        "section": "colors"
+      },
+      {
+        "name": "The Hairline Rule",
+        "body": "All structure is drawn with 1px lines at 16% ink. No shadows-as-borders, no thick strokes, no side-stripes.",
+        "section": "colors"
+      },
+      {
+        "name": "The Apparatus Rule",
+        "body": "Mono uppercase is reserved for the documentary apparatus — numbering, captions, column labels. Never for persuasive copy or CTAs.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Dossier Rule",
+        "body": "Surfaces sit on the paper, they do not hover over it. If a card casts a shadow, it's a bug.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Open Paper Rule",
+        "body": "Content is not boxed. Services, reviews and contact rows sit directly on the paper, separated by hairline top-rules. Full borders are reserved for the two framed figures, form fields and buttons.",
+        "section": "elevation"
+      }
     ],
     "dos": [
       "Do keep Soft Ink (#4A5258) as the floor for text on paper; never lighter.",
@@ -111,7 +248,8 @@
       "Don't drift toward wellness-cream softness: no serif italics, no warm beige drench, no rounded-pill everything.",
       "Don't introduce a second accent color or use green decoratively.",
       "Don't add shadows to resting surfaces or side-stripe borders thicker than 1px.",
-      "Don't re-label photos with provenance badges (réel/illustration) — the owner removed them deliberately."
+      "Don't re-label photos with provenance badges (réel/illustration) — the owner removed them deliberately.",
+      "Don't box content into bordered cards — hairline top-rules only."
     ]
   }
 }

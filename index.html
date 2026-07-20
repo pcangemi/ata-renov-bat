@@ -28,6 +28,7 @@ body{
 a{color:var(--green-dark);text-decoration:none}
 img{max-width:100%;display:block}
 ::selection{background:var(--green);color:#fff}
+:focus-visible{outline:2px solid var(--green-dark);outline-offset:3px;border-radius:2px}
 
 h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em;text-wrap:balance}
 .sec-title{font-size:clamp(28px,3.6vw,44px);margin-bottom:16px;max-width:640px}
@@ -100,11 +101,11 @@ header{position:relative;padding:170px 0 90px;border-bottom:1px solid var(--line
 .cards{display:grid;grid-template-columns:repeat(6,1fr);gap:22px;position:relative;z-index:1}
 .cards>.card{grid-column:span 2}
 .cards>.card:nth-child(4),.cards>.card:nth-child(5){grid-column:span 3}
-.card{border:1px solid var(--line);border-radius:6px;padding:24px;background:rgba(255,255,255,.55)}
+.card{border-top:1px solid var(--line);padding:24px 0 0}
 .card .mono{color:var(--green-dark);display:block;margin-bottom:14px}
 .card h3{font-size:21px;margin-bottom:10px}
 .card p{font-size:14.5px;color:var(--ink-soft)}
-.callout{grid-column:1 / -1;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;border:1px solid var(--line);border-radius:6px;padding:24px 28px;background:var(--green-soft)}
+.callout{grid-column:1 / -1;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;border-top:1px solid var(--ink);padding:28px 0 0;margin-top:12px}
 .callout img{height:44px;width:auto}
 .callout p{font-size:14.5px;color:var(--ink-soft)}
 .callout strong{color:var(--ink)}
@@ -117,15 +118,20 @@ header{position:relative;padding:170px 0 90px;border-bottom:1px solid var(--line
 .about-block p + p{margin-top:14px}
 
 /* ============ RÉALISATIONS ============ */
-.works{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;position:relative;z-index:1}
-.work{transition:transform .25s cubic-bezier(.16,1,.3,1);color:var(--ink)}
-.work-wide{grid-column:span 2}
-.work.work-wide .fig img{aspect-ratio:11/4}
+.works{columns:3;column-gap:28px;position:relative;z-index:1}
+.work{display:block;break-inside:avoid;margin-bottom:36px;color:var(--ink)}
+.work .ph{display:block;overflow:hidden;border-radius:6px}
+.work img{width:100%;height:100%;object-fit:cover;filter:saturate(.82) contrast(1.04);transition:transform .6s cubic-bezier(.16,1,.3,1)}
+.work:hover img{transform:scale(1.045)}
 .work:hover h3{color:var(--green-dark)}
-.work:hover{transform:translateY(-5px)}
-.work .fig img{aspect-ratio:4/3}
-.work h3{font-size:17px;margin:14px 2px 4px}
+.work h3{font-size:17.5px;margin:14px 2px 4px;transition:color .2s}
 .work p{font-size:13.5px;color:var(--ink-soft);margin:0 2px}
+.work:nth-child(1) img{aspect-ratio:3/4}
+.work:nth-child(2) img{aspect-ratio:4/5}
+.work:nth-child(3) img{aspect-ratio:4/3}
+.work:nth-child(4) img{aspect-ratio:4/3}
+.work:nth-child(5) img{aspect-ratio:3/4}
+.work:nth-child(6) img{aspect-ratio:4/3}
 
 /* ============ AVIS ============ */
 .stars{display:flex;gap:4px;color:var(--green);margin-bottom:16px}
@@ -133,7 +139,7 @@ header{position:relative;padding:170px 0 90px;border-bottom:1px solid var(--line
 .avis-head p{color:var(--ink-soft);max-width:560px}
 .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;position:relative;z-index:1}
 .review-wide{grid-column:span 2}
-.review{border:1px solid var(--line);border-radius:6px;padding:24px;background:rgba(255,255,255,.55);display:flex;flex-direction:column;gap:16px}
+.review{border-top:1px solid var(--line);padding:24px 0 0;display:flex;flex-direction:column;gap:16px}
 .review blockquote{font-size:14.5px;color:var(--ink-soft);flex:1}
 .review footer{display:flex;align-items:center;gap:12px}
 .avatar{width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;flex-shrink:0}
@@ -143,12 +149,12 @@ header{position:relative;padding:170px 0 90px;border-bottom:1px solid var(--line
 /* ============ CONTACT ============ */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;position:relative;z-index:1}
 .c-cards{display:flex;flex-direction:column;gap:14px;margin-top:26px}
-.c-card{display:flex;align-items:center;gap:16px;border:1px solid var(--line);border-radius:6px;padding:16px 18px;background:rgba(255,255,255,.55);color:var(--ink)}
-.c-card:hover{border-color:var(--green)}
-.c-ico{width:38px;height:38px;border-radius:4px;background:var(--green-soft);color:var(--green-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.c-card{display:flex;align-items:center;gap:16px;border-top:1px solid var(--line);padding:16px 2px;color:var(--ink)}
+.c-card:hover .c-ico{background:var(--green);color:#fff}
+.c-ico{width:38px;height:38px;border-radius:4px;background:var(--green-soft);color:var(--green-dark);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .2s}
 .c-card .lbl{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
 .c-card .val{font-weight:600;font-size:15.5px}
-.form-panel{border:1px solid var(--line);border-radius:6px;padding:30px;background:rgba(255,255,255,.65)}
+.form-panel{border-top:1px solid var(--ink);padding:28px 0 0}
 .form-panel h3{font-size:20px;margin-bottom:6px}
 .form-panel > p{font-size:14px;color:var(--ink-soft);margin-bottom:22px}
 .form-stack{display:flex;flex-direction:column}
@@ -182,11 +188,11 @@ footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px}
 /* ============ RESPONSIVE ============ */
 @media (max-width:1020px){
   .hero-grid,.split,.contact-grid{grid-template-columns:1fr;gap:40px}
-  .cards,.works,.reviews{grid-template-columns:repeat(2,1fr)}
+  .cards,.reviews{grid-template-columns:repeat(2,1fr)}
   .cards>.card,.cards>.card:nth-child(4){grid-column:span 1}
   .cards>.card:nth-child(5){grid-column:span 2}
-  .works>.work:nth-child(4),.reviews>article:nth-child(4){grid-column:span 1}
-  .works>.work:nth-child(4) .fig img{aspect-ratio:4/3}
+  .reviews>article:nth-child(4){grid-column:span 1}
+  .works{columns:2}
   .callout{grid-template-columns:1fr}
   .bignum{font-size:120px;right:6px}
   .nav-links{display:none}
@@ -194,9 +200,9 @@ footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px}
 @media (max-width:620px){
   section{padding:72px 0}
   header{padding-top:140px}
-  .cards,.works,.reviews{grid-template-columns:1fr}
-  .cards>.card,.cards>.card:nth-child(4),.cards>.card:nth-child(5),.work-wide,.review-wide{grid-column:auto}
-  .work.work-wide .fig img{aspect-ratio:4/3}
+  .cards,.reviews{grid-template-columns:1fr}
+  .cards>.card,.cards>.card:nth-child(4),.cards>.card:nth-child(5),.review-wide{grid-column:auto}
+  .works{columns:1}
   .partners-track{gap:40px;animation:marq-m 32s linear infinite}
   .foot-grid{grid-template-columns:1fr}
   .wrap{padding:0 20px}
@@ -307,7 +313,7 @@ footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px}
     <div class="eyebrow" data-reveal><span class="mono"><span class="num">02</span> / À propos</span></div>
     <div class="split">
       <figure class="fig" data-reveal>
-        <span class="ph"><img src="images/chantier-placo.jpg" alt="Artisan au travail sur cloison, chantier de rénovation"></span>
+        <span class="ph"><img loading="lazy" src="images/chantier-placo.jpg" alt="Artisan au travail sur cloison, chantier de rénovation"></span>
         <figcaption class="fig-cap"><span>Fig. 01 — Sur chantier</span></figcaption>
       </figure>
       <div class="about-block" data-reveal>
@@ -325,52 +331,34 @@ footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px}
   <div class="wrap">
     <div class="eyebrow" data-reveal><span class="mono"><span class="num">03</span> / Réalisations</span></div>
     <h2 class="display sec-title lone" data-reveal>Le geste, pièce par pièce</h2>
-    <div class="works" data-reveal-group>
-      <a class="work work-wide" href="#contact">
-        <figure class="fig">
-          <span class="ph"><img src="images/tableau.jpg" alt="Tableau électrique Schneider rénové, disjoncteurs repérés"></span>
-          <figcaption class="fig-cap"><span>Fig. 02</span></figcaption>
-        </figure>
+    <div class="works">
+      <a class="work" data-reveal href="#contact">
+        <span class="ph"><img src="images/tableau.jpg" alt="Tableau électrique Schneider rénové, disjoncteurs repérés" loading="lazy"></span>
         <h3>Tableau électrique</h3>
         <p>Rénovation complète, circuits repérés et protégés.</p>
       </a>
-      <a class="work" href="#contact">
-        <figure class="fig">
-          <span class="ph"><img src="images/real-gaines.jpg" alt="Saignées et gaines ICTA dans un mur en rénovation"></span>
-          <figcaption class="fig-cap"><span>Fig. 03</span></figcaption>
-        </figure>
+      <a class="work" data-reveal href="#contact">
+        <span class="ph"><img src="images/real-gaines.jpg" alt="Saignées et gaines ICTA dans un mur en rénovation" loading="lazy"></span>
         <h3>Saignées &amp; gaines</h3>
         <p>Passage de gaines ICTA et boîtes d'encastrement.</p>
       </a>
-      <a class="work" href="#contact">
-        <figure class="fig">
-          <span class="ph"><img src="images/real-domotique.jpg" alt="Thermostat connecté mural fraîchement posé"></span>
-          <figcaption class="fig-cap"><span>Fig. 05</span></figcaption>
-        </figure>
+      <a class="work" data-reveal href="#contact">
+        <span class="ph"><img src="images/real-domotique.jpg" alt="Thermostat connecté mural fraîchement posé" loading="lazy"></span>
         <h3>Domotique &amp; thermostat</h3>
         <p>Pilotage du chauffage et gestion de la consommation.</p>
       </a>
-      <a class="work work-wide" href="#contact">
-        <figure class="fig">
-          <span class="ph"><img src="images/real-luminaires.jpg" alt="Suspensions installées au-dessus d'un îlot de cuisine"></span>
-          <figcaption class="fig-cap"><span>Fig. 06</span></figcaption>
-        </figure>
+      <a class="work" data-reveal href="#contact">
+        <span class="ph"><img src="images/real-luminaires.jpg" alt="Suspensions installées au-dessus d'un îlot de cuisine" loading="lazy"></span>
         <h3>Luminaires intérieurs</h3>
         <p>Pose de suspensions, spots et circuits d'éclairage.</p>
       </a>
-      <a class="work" href="#contact">
-        <figure class="fig">
-          <span class="ph"><img src="images/real-eclairage.jpg" alt="Applique extérieure installée sur façade"></span>
-          <figcaption class="fig-cap"><span>Fig. 04</span></figcaption>
-        </figure>
+      <a class="work" data-reveal href="#contact">
+        <span class="ph"><img src="images/real-eclairage.jpg" alt="Applique extérieure installée sur façade" loading="lazy"></span>
         <h3>Éclairage extérieur</h3>
         <p>Appliques, détecteurs et mises en lumière de façades.</p>
       </a>
-      <a class="work work-wide" href="#contact">
-        <figure class="fig">
-          <span class="ph"><img src="images/real-renovation.jpg" alt="Pièce en rénovation, câblage au plafond"></span>
-          <figcaption class="fig-cap"><span>Fig. 07</span></figcaption>
-        </figure>
+      <a class="work" data-reveal href="#contact">
+        <span class="ph"><img src="images/real-renovation.jpg" alt="Pièce en rénovation, câblage au plafond" loading="lazy"></span>
         <h3>Rénovation &amp; câblage</h3>
         <p>Reprise complète du câblage en cours de rénovation.</p>
       </a>
@@ -588,6 +576,11 @@ footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px}
     // Photo scale-in inside figure frames
     gsap.utils.toArray('.fig .ph img').forEach(function (img) {
       gsap.from(img, { scale: 1.09, duration: 1.3, ease: 'power2.out', scrollTrigger: { trigger: img.closest('.fig'), start: 'top 90%' } });
+    });
+
+    // Masonry drift: each column lane scrolls at a slightly different speed
+    gsap.utils.toArray('.works .work').forEach(function (el, i) {
+      gsap.to(el, { yPercent: -(2 + (i % 3) * 3), ease: 'none', scrollTrigger: { trigger: '.works', start: 'top bottom', end: 'bottom top', scrub: true } });
     });
 
     // Outline numerals drift
