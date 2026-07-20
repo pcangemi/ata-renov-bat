@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ata-renov-bat.com/sitemap.xml
