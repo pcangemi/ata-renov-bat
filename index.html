@@ -29,19 +29,19 @@ a{color:var(--green-dark);text-decoration:none}
 img{max-width:100%;display:block}
 ::selection{background:var(--green);color:#fff}
 
-h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em}
+h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em;text-wrap:balance}
+.sec-title{font-size:clamp(28px,3.6vw,44px);margin-bottom:16px;max-width:640px}
+.sec-title.lone{margin-bottom:48px}
 .mono{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase}
 
 .wrap{max-width:1200px;margin:0 auto;padding:0 28px}
-section{position:relative;padding:96px 0}
+section{position:relative;padding:clamp(72px,8vw,104px) 0}
 
 /* schematic eyebrow: 01 / LABEL ————o */
-.eyebrow{display:flex;align-items:center;gap:14px;color:var(--ink-soft);margin-bottom:28px}
+.eyebrow{display:flex;align-items:center;gap:14px;color:var(--ink-soft);margin-bottom:24px}
 .eyebrow .num{color:var(--green);font-weight:500}
-.eyebrow .trace{flex:1;height:1px;border-top:1px dashed var(--line);position:relative}
-.eyebrow .trace::after{content:'';position:absolute;right:0;top:-3.5px;width:7px;height:7px;border-radius:50%;background:var(--green)}
 
-/* giant outline numeral */
+/* giant outline numeral (alternates top/bottom per section) */
 .bignum{position:absolute;top:34px;right:10px;z-index:0;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(120px,22vw,260px);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(20,24,26,.10);pointer-events:none;user-select:none}
 
 /* reveals (driven by GSAP; .in is the no-GSAP fallback) */
@@ -69,23 +69,19 @@ nav{position:fixed;inset:0 0 auto 0;z-index:60;background:rgba(247,246,242,.85);
 /* ============ HERO ============ */
 header{position:relative;padding:170px 0 90px;border-bottom:1px solid var(--line)}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:64px;align-items:center}
-.hero-title{font-size:clamp(38px,5vw,64px);line-height:1.04;font-weight:700;margin:18px 0 22px}
+.hero-title{font-size:clamp(30px,5vw,64px);line-height:1.04;font-weight:700;margin:18px 0 22px}
 .typed{color:var(--green);white-space:nowrap}
 .caret{display:inline-block;width:3px;height:.9em;background:var(--green);vertical-align:-.08em;margin-left:2px;animation:blink 1s steps(1) infinite}
 @keyframes blink{50%{opacity:0}}
 @media (prefers-reduced-motion: reduce){.caret{display:none}}
-.hero-sub{font-size:18px;color:var(--ink-soft);max-width:520px;margin-bottom:34px}
+.hero-sub{font-size:18px;color:var(--ink-soft);max-width:520px;margin-bottom:32px}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
-.chips{display:flex;gap:10px;flex-wrap:wrap}
-.chip{font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;padding:8px 14px;border:1px solid var(--line);border-radius:3px;color:var(--ink-soft)}
-.chip strong{color:var(--green-dark);font-weight:500}
 
 /* figure frame — photos presented like schematic figures */
 .fig{border:1px solid var(--line);border-radius:6px;overflow:hidden;background:#fff}
 .fig .ph{display:block;overflow:hidden}
 .fig img{width:100%;height:100%;object-fit:cover;filter:saturate(.82) contrast(1.04)}
 .fig-cap{display:flex;justify-content:space-between;gap:12px;padding:10px 14px;border-top:1px solid var(--line);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);background:var(--paper)}
-.fig-cap .ok{color:var(--green-dark)}
 .hero-fig img{aspect-ratio:4/3}
 
 /* ============ PARTNERS ============ */
@@ -94,18 +90,21 @@ header{position:relative;padding:170px 0 90px;border-bottom:1px solid var(--line
 .partners-track{display:flex;align-items:center;gap:76px;width:max-content;animation:marq 32s linear infinite}
 .partners-track:hover{animation-play-state:paused}
 @keyframes marq{to{transform:translateX(calc(-50% - 38px))}}
+@keyframes marq-m{to{transform:translateX(calc(-50% - 20px))}}
 @media (prefers-reduced-motion: reduce){.partners-track{animation:none}}
 .partners-track img{height:30px;width:auto;filter:grayscale(1) brightness(.25);opacity:.62;transition:all .25s}
 .partners-track img[src*='schneider'],.partners-track img[src*='hager']{height:60px}
 .partners-track img:hover{filter:none;opacity:1}
 
 /* ============ PRESTATIONS ============ */
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;position:relative;z-index:1}
-.card{border:1px solid var(--line);border-radius:6px;padding:26px 24px;background:rgba(255,255,255,.55)}
+.cards{display:grid;grid-template-columns:repeat(6,1fr);gap:22px;position:relative;z-index:1}
+.cards>.card{grid-column:span 2}
+.cards>.card:nth-child(4),.cards>.card:nth-child(5){grid-column:span 3}
+.card{border:1px solid var(--line);border-radius:6px;padding:24px;background:rgba(255,255,255,.55)}
 .card .mono{color:var(--green-dark);display:block;margin-bottom:14px}
 .card h3{font-size:21px;margin-bottom:10px}
 .card p{font-size:14.5px;color:var(--ink-soft)}
-.callout{grid-column:1 / -1;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;border:1px solid var(--line);border-radius:6px;padding:26px 28px;background:var(--green-soft)}
+.callout{grid-column:1 / -1;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;border:1px solid var(--line);border-radius:6px;padding:24px 28px;background:var(--green-soft)}
 .callout img{height:44px;width:auto}
 .callout p{font-size:14.5px;color:var(--ink-soft)}
 .callout strong{color:var(--ink)}
@@ -120,18 +119,20 @@ header{position:relative;padding:170px 0 90px;border-bottom:1px solid var(--line
 /* ============ RÉALISATIONS ============ */
 .works{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;position:relative;z-index:1}
 .work{transition:transform .25s cubic-bezier(.16,1,.3,1);color:var(--ink)}
+.work-wide{grid-column:span 2}
+.work.work-wide .fig img{aspect-ratio:11/4}
 .work:hover h3{color:var(--green-dark)}
 .work:hover{transform:translateY(-5px)}
 .work .fig img{aspect-ratio:4/3}
 .work h3{font-size:17px;margin:14px 2px 4px}
 .work p{font-size:13.5px;color:var(--ink-soft);margin:0 2px}
-.works-note{margin-top:26px;font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.08em;color:var(--ink-soft)}
 
 /* ============ AVIS ============ */
 .stars{display:flex;gap:4px;color:var(--green);margin-bottom:16px}
-.avis-head h2{font-size:clamp(28px,3.6vw,44px);margin-bottom:12px}
+.avis-head h2{font-size:clamp(28px,3.6vw,44px);margin-bottom:16px}
 .avis-head p{color:var(--ink-soft);max-width:560px}
-.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:44px;position:relative;z-index:1}
+.reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;position:relative;z-index:1}
+.review-wide{grid-column:span 2}
 .review{border:1px solid var(--line);border-radius:6px;padding:24px;background:rgba(255,255,255,.55);display:flex;flex-direction:column;gap:16px}
 .review blockquote{font-size:14.5px;color:var(--ink-soft);flex:1}
 .review footer{display:flex;align-items:center;gap:12px}
@@ -163,7 +164,7 @@ header{position:relative;padding:170px 0 90px;border-bottom:1px solid var(--line
 #form-ok p{font-size:14.5px;color:var(--ink-soft)}
 
 /* ============ FOOTER ============ */
-footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px;margin-top:40px}
+footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px}
 .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px}
 .foot-grid img{height:52px;width:auto;filter:brightness(1.35)}
 .foot-grid p{font-size:13.5px;max-width:280px;margin-top:14px}
@@ -182,6 +183,10 @@ footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px;margin-top:4
 @media (max-width:1020px){
   .hero-grid,.split,.contact-grid{grid-template-columns:1fr;gap:40px}
   .cards,.works,.reviews{grid-template-columns:repeat(2,1fr)}
+  .cards>.card,.cards>.card:nth-child(4){grid-column:span 1}
+  .cards>.card:nth-child(5){grid-column:span 2}
+  .works>.work:nth-child(4),.reviews>article:nth-child(4){grid-column:span 1}
+  .works>.work:nth-child(4) .fig img{aspect-ratio:4/3}
   .callout{grid-template-columns:1fr}
   .bignum{font-size:120px;right:6px}
   .nav-links{display:none}
@@ -190,11 +195,13 @@ footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px;margin-top:4
   section{padding:72px 0}
   header{padding-top:140px}
   .cards,.works,.reviews{grid-template-columns:1fr}
+  .cards>.card,.cards>.card:nth-child(4),.cards>.card:nth-child(5),.work-wide,.review-wide{grid-column:auto}
+  .work.work-wide .fig img{aspect-ratio:4/3}
+  .partners-track{gap:40px;animation:marq-m 32s linear infinite}
   .foot-grid{grid-template-columns:1fr}
   .wrap{padding:0 20px}
   .nav-in{padding:12px 20px}
   .nav-logo img{height:38px}
-  .partners-row{justify-content:center;gap:26px}
 }
 </style>
 <noscript><style>[data-reveal]{opacity:1;transform:none}</style></noscript>
@@ -258,8 +265,8 @@ footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px;margin-top:4
   <div class="bignum">01</div>
   <div class="wrap">
     <div class="eyebrow" data-reveal><span class="mono"><span class="num">01</span> / Prestations</span></div>
-    <h2 class="display" style="font-size:clamp(28px,3.6vw,44px);max-width:640px;margin-bottom:14px" data-reveal>Votre installation, de la conception à la maintenance</h2>
-    <p class="lede" data-reveal style="max-width:640px;margin-bottom:44px">Votre maison et vos besoins évoluent ainsi que les législations en termes de sécurité électrique&nbsp;: nous vous guidons vers des solutions au plus près de vos besoins, que vous soyez une entreprise ou un particulier.</p>
+    <h2 class="display sec-title" data-reveal>Votre installation, de la conception à la maintenance</h2>
+    <p class="lede" data-reveal style="max-width:640px;margin-bottom:48px">De l'étude à la pose puis au dépannage, un seul artisan prend en charge votre installation — pour les particuliers comme pour les entreprises, dans les Alpes-Maritimes.</p>
     <div class="cards" data-reveal-group>
       <div class="card">
         <span class="mono">S.01</span>
@@ -304,7 +311,7 @@ footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px;margin-top:4
         <figcaption class="fig-cap"><span>Fig. 01 — Sur chantier</span></figcaption>
       </figure>
       <div class="about-block" data-reveal>
-        <h2 class="display" style="font-size:clamp(28px,3.6vw,44px);margin-bottom:18px">Demandez l'excellence</h2>
+        <h2 class="display sec-title">Demandez l'excellence</h2>
         <p class="lede">Artisan indépendant depuis 2011 et fort d'une expérience de plus de 14 ans dans le domaine électrique.</p>
         <p><strong>ATA Rénov'Bat</strong> se met à votre service pour vous accompagner dans la réalisation de travaux de modernisation, de rénovation, de mise aux normes ou de création. Votre maison et vos besoins évoluent ainsi que les législations en termes de sécurité électrique&nbsp;: nous vous guidons vers des solutions afin de coller au plus près de vos besoins, que vous soyez une entreprise ou un particulier.</p>
         <p>Nous vous proposons des solutions innovantes pour une meilleure gestion de votre consommation énergétique. Alors n'hésitez pas à faire appel à nos services&nbsp;: nous serons ravis de mettre notre savoir-faire à la bonne conduite de vos projets.</p>
@@ -317,9 +324,9 @@ footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px;margin-top:4
   <div class="bignum">03</div>
   <div class="wrap">
     <div class="eyebrow" data-reveal><span class="mono"><span class="num">03</span> / Réalisations</span></div>
-    <h2 class="display" style="font-size:clamp(28px,3.6vw,44px);margin-bottom:44px" data-reveal>Le geste, pièce par pièce</h2>
+    <h2 class="display sec-title lone" data-reveal>Le geste, pièce par pièce</h2>
     <div class="works" data-reveal-group>
-      <a class="work" href="#contact">
+      <a class="work work-wide" href="#contact">
         <figure class="fig">
           <span class="ph"><img src="images/tableau.jpg" alt="Tableau électrique Schneider rénové, disjoncteurs repérés"></span>
           <figcaption class="fig-cap"><span>Fig. 02</span></figcaption>
@@ -337,21 +344,13 @@ footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px;margin-top:4
       </a>
       <a class="work" href="#contact">
         <figure class="fig">
-          <span class="ph"><img src="images/real-eclairage.jpg" alt="Applique extérieure installée sur façade"></span>
-          <figcaption class="fig-cap"><span>Fig. 04</span></figcaption>
-        </figure>
-        <h3>Éclairage extérieur</h3>
-        <p>Appliques, détecteurs et mises en lumière de façades.</p>
-      </a>
-      <a class="work" href="#contact">
-        <figure class="fig">
           <span class="ph"><img src="images/real-domotique.jpg" alt="Thermostat connecté mural fraîchement posé"></span>
           <figcaption class="fig-cap"><span>Fig. 05</span></figcaption>
         </figure>
         <h3>Domotique &amp; thermostat</h3>
         <p>Pilotage du chauffage et gestion de la consommation.</p>
       </a>
-      <a class="work" href="#contact">
+      <a class="work work-wide" href="#contact">
         <figure class="fig">
           <span class="ph"><img src="images/real-luminaires.jpg" alt="Suspensions installées au-dessus d'un îlot de cuisine"></span>
           <figcaption class="fig-cap"><span>Fig. 06</span></figcaption>
@@ -360,6 +359,14 @@ footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px;margin-top:4
         <p>Pose de suspensions, spots et circuits d'éclairage.</p>
       </a>
       <a class="work" href="#contact">
+        <figure class="fig">
+          <span class="ph"><img src="images/real-eclairage.jpg" alt="Applique extérieure installée sur façade"></span>
+          <figcaption class="fig-cap"><span>Fig. 04</span></figcaption>
+        </figure>
+        <h3>Éclairage extérieur</h3>
+        <p>Appliques, détecteurs et mises en lumière de façades.</p>
+      </a>
+      <a class="work work-wide" href="#contact">
         <figure class="fig">
           <span class="ph"><img src="images/real-renovation.jpg" alt="Pièce en rénovation, câblage au plafond"></span>
           <figcaption class="fig-cap"><span>Fig. 07</span></figcaption>
@@ -387,9 +394,9 @@ footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px;margin-top:4
       <p>De nombreuses personnes ou entreprises ont partagé leurs avis positifs concernant ATA Rénov'Bat. Voici ce qu'elles ont à dire à notre sujet.</p>
     </div>
     <div class="reviews" data-reveal-group>
-      <article class="review">
-        <blockquote>«&nbsp;Très professionnel, réactif et de bons conseils quant à la sécurité électrique. Déjà plusieurs chantiers réalisés avec Ata et toujours de qualité, je recommande fortement.&nbsp;»</blockquote>
-        <footer><div class="avatar">M</div><div><div class="who">Mathieu Parigot</div><div class="what">Fils de terre · Éclairages extérieurs</div></div></footer>
+      <article class="review review-wide">
+        <blockquote>«&nbsp;J'ai fait appel aux services de Ata Renov Bat pour des travaux de rénovation et d'aménagement (dressing sur mesure, caisson home-cinéma, rénovation des murs &amp; plafonds…) et j'en suis pleinement satisfait, que ce soit au niveau tarif qu'au niveau humain. Le travail est de qualité&nbsp;!&nbsp;»</blockquote>
+        <footer><div class="avatar">P</div><div><div class="who">Pierre Cangemi</div><div class="what">Rénovation &amp; aménagement</div></div></footer>
       </article>
       <article class="review">
         <blockquote>«&nbsp;Great work at the right price. Will call ATA again with my next project.&nbsp;»</blockquote>
@@ -399,17 +406,17 @@ footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px;margin-top:4
         <blockquote>«&nbsp;Travail très soigné et professionnel attentionné&nbsp;! Je ne peux que recommander cet artisan pour tous types de travaux, je referais appel sans nul doute&nbsp;!&nbsp;»</blockquote>
         <footer><div class="avatar">M</div><div><div class="who">Marc Pey</div><div class="what">Fils de terre · Modification d'installations</div></div></footer>
       </article>
-      <article class="review">
-        <blockquote>«&nbsp;Très bon professionnel. Il est intervenu très rapidement à la suite de mon appel. Grande volonté de satisfaire son client et très agréable. Je recommande à 💯&nbsp;%. Pour mes prochains travaux, je ferai appel à lui.&nbsp;»</blockquote>
-        <footer><div class="avatar">S</div><div><div class="who">Stephanie Froc</div><div class="what">Réparation de prises et d'interrupteurs</div></div></footer>
+      <article class="review review-wide">
+        <blockquote>«&nbsp;Très professionnel, réactif et de bons conseils quant à la sécurité électrique. Déjà plusieurs chantiers réalisés avec Ata et toujours de qualité, je recommande fortement.&nbsp;»</blockquote>
+        <footer><div class="avatar">M</div><div><div class="who">Mathieu Parigot</div><div class="what">Fils de terre · Éclairages extérieurs</div></div></footer>
       </article>
       <article class="review">
         <blockquote>«&nbsp;C'est une entreprise très à l'écoute, performante, et également fort sympathique, beaucoup de points positifs&nbsp;!!! Je les recommande grandement.&nbsp;»</blockquote>
         <footer><div class="avatar">J</div><div><div class="who">Jeremy Lemercier</div><div class="what">Réparation de prises et d'interrupteurs</div></div></footer>
       </article>
-      <article class="review">
-        <blockquote>«&nbsp;J'ai fait appel aux services de Ata Renov Bat pour des travaux de rénovation et d'aménagement (dressing sur mesure, caisson home-cinéma, rénovation des murs &amp; plafonds…) et j'en suis pleinement satisfait, que ce soit au niveau tarif qu'au niveau humain. Le travail est de qualité&nbsp;!&nbsp;»</blockquote>
-        <footer><div class="avatar">P</div><div><div class="who">Pierre Cangemi</div><div class="what">Rénovation &amp; aménagement</div></div></footer>
+      <article class="review review-wide">
+        <blockquote>«&nbsp;Très bon professionnel. Il est intervenu très rapidement à la suite de mon appel. Grande volonté de satisfaire son client et très agréable. Je recommande à 💯&nbsp;%. Pour mes prochains travaux, je ferai appel à lui.&nbsp;»</blockquote>
+        <footer><div class="avatar">S</div><div><div class="who">Stephanie Froc</div><div class="what">Réparation de prises et d'interrupteurs</div></div></footer>
       </article>
     </div>
   </div>
@@ -421,7 +428,7 @@ footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px;margin-top:4
     <div class="eyebrow" data-reveal><span class="mono"><span class="num">05</span> / Contact</span></div>
     <div class="contact-grid">
       <div data-reveal>
-        <h2 class="display" style="font-size:clamp(28px,3.6vw,44px);margin-bottom:14px">Parlons de votre projet</h2>
+        <h2 class="display sec-title">Parlons de votre projet</h2>
         <p style="color:var(--ink-soft);max-width:420px">Pour tout renseignement ou demande de devis, nous sommes à votre écoute également par téléphone ou mail.</p>
         <div class="c-cards">
           <a class="c-card" href="tel:+33758505142">
