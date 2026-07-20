@@ -174,14 +174,6 @@
       "css": ".ds-btn-outline{display:inline-flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:15px;padding:13px 24px;border:1px solid #14181A;border-radius:4px;background:none;color:#14181A;text-decoration:none;transition:all .2s}.ds-btn-outline:hover{background:#14181A;color:#F7F6F2}"
     },
     {
-      "name": "Segmented Input Group",
-      "kind": "input",
-      "refersTo": "input",
-      "description": "Devis form — fields share collapsed hairline borders, outer corners only.",
-      "html": "<div class=\"ds-formstack\"><input class=\"ds-input ds-input-first\" placeholder=\"Votre nom\"><input class=\"ds-input ds-input-mid\" placeholder=\"Téléphone\"><textarea class=\"ds-input ds-input-last\" rows=\"3\" placeholder=\"Votre projet\"></textarea></div>",
-      "css": ".ds-formstack{display:flex;flex-direction:column;width:280px}.ds-input{width:100%;padding:14px 16px;border:1px solid rgba(20,24,26,.16);background:#fff;font-family:Archivo,system-ui,sans-serif;font-size:15px;color:#14181A;resize:none}.ds-input::placeholder{color:#4A5258}.ds-input:focus{outline:none;border-color:#03A678;position:relative;z-index:1}.ds-input-first{border-radius:5px 5px 0 0}.ds-input-mid,.ds-input-last{margin-top:-1px}.ds-input-last{border-radius:0 0 5px 5px}"
-    },
-    {
       "name": "Figure Frame",
       "kind": "card",
       "refersTo": "card",

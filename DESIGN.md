@@ -109,7 +109,7 @@ A restrained paper-and-ink base that lets the single chantier green read as sign
 ### Named Rules
 **The One Green Rule.** Green appears only where it means something: an action, an active state, a key term. If a screen is more than ~10% green, it has stopped being signal.
 **The Hairline Rule.** All structure is drawn with 1px lines at 16% ink. No shadows-as-borders, no thick strokes, no side-stripes.
-**The Open Paper Rule.** Content is not boxed. Services, reviews and contact rows sit directly on the paper, separated by hairline top-rules. Full borders are reserved for the two framed figures (hero, à propos), the MAAF décennale callout (the one sanctioned box, green-washed), form fields, and buttons. The owner's verdict on bordered card grids: "too much boxes, feels way too AI generated".
+**The Open Paper Rule.** Content is not boxed. Services, reviews and contact rows sit directly on the paper, separated by hairline top-rules. Full borders are reserved for the two framed figures (hero, à propos), the MAAF décennale callout (the one sanctioned box, green-washed), and buttons. There is no form: contact is direct-only (tel:, WhatsApp, mailto:). The owner's verdict on bordered card grids: "too much boxes, feels way too AI generated".
 
 ## 3. Typography
 
@@ -150,15 +150,11 @@ Essentially flat: depth is conveyed by hairline rules and the drafting grid, not
 - **Internal spacing:** 24px below the rule; content directly on paper.
 - **Emphasis variant:** the MAAF callout uses a 1px Ink top-rule (heavier voice, same grammar).
 
-### Inputs / Fields
-- **Style:** segmented group — fields share collapsed 1px borders, only the group's outer corners round (5px); white fill.
-- **Focus:** border turns Chantier Green (z-raised so the highlight is unbroken); no glow.
-
 ### Navigation
 - Fixed, paper at 85% with backdrop blur, hairline bottom border. Logo left, Archivo 14px links center (hidden ≤1020px), ink phone-CTA right. Anchor scrolling glides via Lenis.
 
 ### Testimonials
-Open quotes on hairline rules: a green 5-star row (12px) heads each review; the three long reviews sit in wide cells set as Space Grotesk pull-quotes (20px, ink); attribution uses 36px green-wash mono initial tags, not photo avatars. The partner marquee is full-bleed (8 brands: Schneider Electric, Legrand, Hager, Nexans, Otio, Siemens, Bosch, ABB).
+Open quotes on hairline rules: a green 5-star row (12px) heads each review; the three long reviews sit in wide cells set as Space Grotesk pull-quotes (20px, ink); attribution uses 36px green-wash mono initial tags, not photo avatars. The partner marquee is full-bleed (11 brands ×3 sets for seamless wide-screen looping: Schneider Electric, Legrand, Hager, Nexans, Otio, Siemens, Bosch, ABB, Philips Hue, TP-Link, Shelly).
 
 ### The Figure Frame (hero and à propos only)
 The two "document" photographs sit in a bordered frame: image (saturation 0.82, contrast 1.04), hairline caption bar with mono `Fig. 0X` label. Images scale in from 1.09 inside a clipped wrapper on reveal.
