@@ -95,6 +95,7 @@ header{position:relative;padding:170px 0 90px;border-bottom:1px solid var(--line
 @media (prefers-reduced-motion: reduce){.partners-track{animation:none}}
 .partners-track img{height:30px;width:auto;filter:grayscale(1) brightness(.25);opacity:.62;transition:all .25s}
 .partners-track img[src*='schneider'],.partners-track img[src*='hager']{height:60px}
+.partners-track img[src*='siemens'],.partners-track img[src*='abb'],.partners-track img[src*='bosch']{height:38px}
 .partners-track img:hover{filter:none;opacity:1}
 
 /* ============ PRESTATIONS ============ */
@@ -105,7 +106,7 @@ header{position:relative;padding:170px 0 90px;border-bottom:1px solid var(--line
 .card .mono{color:var(--green-dark);display:block;margin-bottom:14px}
 .card h3{font-size:21px;margin-bottom:10px}
 .card p{font-size:14.5px;color:var(--ink-soft)}
-.callout{grid-column:1 / -1;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;border-top:1px solid var(--ink);padding:28px 0 0;margin-top:12px}
+.callout{grid-column:1 / -1;display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center;border:1px solid var(--line);border-radius:6px;padding:24px 28px;background:var(--green-soft);margin-top:16px}
 .callout img{height:44px;width:auto}
 .callout p{font-size:14.5px;color:var(--ink-soft)}
 .callout strong{color:var(--ink)}
@@ -118,20 +119,16 @@ header{position:relative;padding:170px 0 90px;border-bottom:1px solid var(--line
 .about-block p + p{margin-top:14px}
 
 /* ============ RÉALISATIONS ============ */
-.works{columns:3;column-gap:28px;position:relative;z-index:1}
-.work{display:block;break-inside:avoid;margin-bottom:36px;color:var(--ink)}
+.works{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;align-items:start;position:relative;z-index:1}
+.mcol{display:flex;flex-direction:column;gap:36px}
+.work{display:block;color:var(--ink)}
 .work .ph{display:block;overflow:hidden;border-radius:6px}
 .work img{width:100%;height:100%;object-fit:cover;filter:saturate(.82) contrast(1.04);transition:transform .6s cubic-bezier(.16,1,.3,1)}
 .work:hover img{transform:scale(1.045)}
 .work:hover h3{color:var(--green-dark)}
-.work h3{font-size:17.5px;margin:14px 2px 4px;transition:color .2s}
-.work p{font-size:13.5px;color:var(--ink-soft);margin:0 2px}
-.work:nth-child(1) img{aspect-ratio:3/4}
-.work:nth-child(2) img{aspect-ratio:4/5}
-.work:nth-child(3) img{aspect-ratio:4/3}
-.work:nth-child(4) img{aspect-ratio:4/3}
-.work:nth-child(5) img{aspect-ratio:3/4}
-.work:nth-child(6) img{aspect-ratio:4/3}
+.work h3{font-size:17.5px;margin:14px 2px 4px;transition:color .2s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.work p{font-size:13.5px;color:var(--ink-soft);margin:0 2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:44px}
+.ar-34 img{aspect-ratio:3/4}.ar-45 img{aspect-ratio:4/5}.ar-43 img{aspect-ratio:4/3}.ar-11 img{aspect-ratio:1/1}.ar-65 img{aspect-ratio:6/5}
 
 /* ============ AVIS ============ */
 .stars{display:flex;gap:4px;color:var(--green);margin-bottom:16px}
@@ -139,10 +136,12 @@ header{position:relative;padding:170px 0 90px;border-bottom:1px solid var(--line
 .avis-head p{color:var(--ink-soft);max-width:560px}
 .reviews{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:48px;position:relative;z-index:1}
 .review-wide{grid-column:span 2}
-.review{border-top:1px solid var(--line);padding:24px 0 0;display:flex;flex-direction:column;gap:16px}
+.review{border-top:1px solid var(--line);padding:24px 0 0;display:flex;flex-direction:column;gap:14px}
+.rstars{display:flex;gap:3px;color:var(--green)}
+.review.review-wide blockquote{font-family:'Space Grotesk',sans-serif;font-size:20px;line-height:1.5;letter-spacing:-.01em;font-weight:500;color:var(--ink)}
 .review blockquote{font-size:14.5px;color:var(--ink-soft);flex:1}
 .review footer{display:flex;align-items:center;gap:12px}
-.avatar{width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk',sans-serif;font-weight:700;flex-shrink:0}
+.avatar{width:36px;height:36px;border-radius:4px;background:var(--green-soft);color:var(--green-dark);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:500;flex-shrink:0}
 .review .who{font-size:13.5px;font-weight:600}
 .review .what{font-size:12px;color:var(--ink-soft)}
 
@@ -192,7 +191,8 @@ footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px}
   .cards>.card,.cards>.card:nth-child(4){grid-column:span 1}
   .cards>.card:nth-child(5){grid-column:span 2}
   .reviews>article:nth-child(4){grid-column:span 1}
-  .works{columns:2}
+  .works{gap:22px}
+  .mcol{gap:28px}
   .callout{grid-template-columns:1fr}
   .bignum{font-size:120px;right:6px}
   .nav-links{display:none}
@@ -202,7 +202,7 @@ footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px}
   header{padding-top:140px}
   .cards,.reviews{grid-template-columns:1fr}
   .cards>.card,.cards>.card:nth-child(4),.cards>.card:nth-child(5),.review-wide{grid-column:auto}
-  .works{columns:1}
+  .works{grid-template-columns:1fr}
   .partners-track{gap:40px;animation:marq-m 32s linear infinite}
   .foot-grid{grid-template-columns:1fr}
   .wrap{padding:0 20px}
@@ -251,18 +251,24 @@ footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px}
 </header>
 
 <div class="partners">
-  <div class="wrap partners-mask" data-reveal>
+  <div class="partners-mask" data-reveal>
     <div class="partners-track">
       <img src="images/partners/schneider-electric.svg" alt="Schneider Electric">
       <img src="images/partners/legrand.svg" alt="Legrand">
       <img src="images/partners/hager.svg" alt="Hager">
       <img src="images/partners/nexans.svg" alt="Nexans">
       <img src="images/partners/otio.svg" alt="Otio">
+      <img src="images/partners/siemens.svg" alt="Siemens">
+      <img src="images/partners/bosch.svg" alt="Bosch">
+      <img src="images/partners/abb.svg" alt="ABB">
       <img src="images/partners/schneider-electric.svg" aria-hidden="true" alt="Schneider Electric">
       <img src="images/partners/legrand.svg" aria-hidden="true" alt="Legrand">
       <img src="images/partners/hager.svg" aria-hidden="true" alt="Hager">
       <img src="images/partners/nexans.svg" aria-hidden="true" alt="Nexans">
       <img src="images/partners/otio.svg" aria-hidden="true" alt="Otio">
+      <img src="images/partners/siemens.svg" aria-hidden="true" alt="Siemens">
+      <img src="images/partners/bosch.svg" aria-hidden="true" alt="Bosch">
+      <img src="images/partners/abb.svg" aria-hidden="true" alt="ABB">
     </div>
   </div>
 </div>
@@ -332,36 +338,57 @@ footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px}
     <div class="eyebrow" data-reveal><span class="mono"><span class="num">03</span> / Réalisations</span></div>
     <h2 class="display sec-title lone" data-reveal>Le geste, pièce par pièce</h2>
     <div class="works">
-      <a class="work" data-reveal href="#contact">
-        <span class="ph"><img src="images/tableau.jpg" alt="Tableau électrique Schneider rénové, disjoncteurs repérés" loading="lazy"></span>
-        <h3>Tableau électrique</h3>
-        <p>Rénovation complète, circuits repérés et protégés.</p>
-      </a>
-      <a class="work" data-reveal href="#contact">
-        <span class="ph"><img src="images/real-gaines.jpg" alt="Saignées et gaines ICTA dans un mur en rénovation" loading="lazy"></span>
-        <h3>Saignées &amp; gaines</h3>
-        <p>Passage de gaines ICTA et boîtes d'encastrement.</p>
-      </a>
-      <a class="work" data-reveal href="#contact">
-        <span class="ph"><img src="images/real-domotique.jpg" alt="Thermostat connecté mural fraîchement posé" loading="lazy"></span>
-        <h3>Domotique &amp; thermostat</h3>
-        <p>Pilotage du chauffage et gestion de la consommation.</p>
-      </a>
-      <a class="work" data-reveal href="#contact">
-        <span class="ph"><img src="images/real-luminaires.jpg" alt="Suspensions installées au-dessus d'un îlot de cuisine" loading="lazy"></span>
-        <h3>Luminaires intérieurs</h3>
-        <p>Pose de suspensions, spots et circuits d'éclairage.</p>
-      </a>
-      <a class="work" data-reveal href="#contact">
-        <span class="ph"><img src="images/real-eclairage.jpg" alt="Applique extérieure installée sur façade" loading="lazy"></span>
-        <h3>Éclairage extérieur</h3>
-        <p>Appliques, détecteurs et mises en lumière de façades.</p>
-      </a>
-      <a class="work" data-reveal href="#contact">
-        <span class="ph"><img src="images/real-renovation.jpg" alt="Pièce en rénovation, câblage au plafond" loading="lazy"></span>
-        <h3>Rénovation &amp; câblage</h3>
-        <p>Reprise complète du câblage en cours de rénovation.</p>
-      </a>
+      <div class="mcol">
+        <a class="work ar-34" data-reveal href="#contact">
+          <span class="ph"><img src="images/tableau.jpg" alt="Tableau électrique Schneider rénové, disjoncteurs repérés" loading="lazy"></span>
+          <h3>Tableau électrique</h3>
+          <p>Rénovation complète, circuits repérés et protégés.</p>
+        </a>
+        <a class="work ar-43" data-reveal href="#contact">
+          <span class="ph"><img src="images/real-luminaires.jpg" alt="Suspensions installées au-dessus d'un îlot de cuisine" loading="lazy"></span>
+          <h3>Luminaires intérieurs</h3>
+          <p>Pose de suspensions, spots et circuits d'éclairage.</p>
+        </a>
+        <a class="work ar-11" data-reveal href="#contact">
+          <span class="ph"><img src="images/real-prises.jpg" alt="Prise double et interrupteur neufs posés sur mur peint" loading="lazy"></span>
+          <h3>Prises & interrupteurs</h3>
+          <p>Appareillage neuf, postes repérés et testés.</p>
+        </a>
+      </div>
+      <div class="mcol">
+        <a class="work ar-45" data-reveal href="#contact">
+          <span class="ph"><img src="images/real-gaines.jpg" alt="Saignées et gaines ICTA dans un mur en rénovation" loading="lazy"></span>
+          <h3>Saignées & gaines</h3>
+          <p>Passage de gaines ICTA et boîtes d'encastrement.</p>
+        </a>
+        <a class="work ar-11" data-reveal href="#contact">
+          <span class="ph"><img src="images/real-domotique.jpg" alt="Thermostat connecté mural fraîchement posé" loading="lazy"></span>
+          <h3>Domotique & thermostat</h3>
+          <p>Pilotage du chauffage et gestion de la consommation.</p>
+        </a>
+        <a class="work ar-65" data-reveal href="#contact">
+          <span class="ph"><img src="images/real-spots.jpg" alt="Spots LED encastrés dans un plafond rénové" loading="lazy"></span>
+          <h3>Spots encastrés</h3>
+          <p>Éclairage LED intégré aux plafonds rénovés.</p>
+        </a>
+      </div>
+      <div class="mcol">
+        <a class="work ar-11" data-reveal href="#contact">
+          <span class="ph"><img src="images/real-cablage.jpg" alt="Câblage soigné dans un tableau électrique ouvert" loading="lazy"></span>
+          <h3>Câblage du tableau</h3>
+          <p>Raccordement soigné, repérage circuit par circuit.</p>
+        </a>
+        <a class="work ar-34" data-reveal href="#contact">
+          <span class="ph"><img src="images/real-eclairage.jpg" alt="Applique extérieure installée sur façade" loading="lazy"></span>
+          <h3>Éclairage extérieur</h3>
+          <p>Appliques, détecteurs et mises en lumière de façades.</p>
+        </a>
+        <a class="work ar-43" data-reveal href="#contact">
+          <span class="ph"><img src="images/real-renovation.jpg" alt="Pièce en rénovation, câblage au plafond" loading="lazy"></span>
+          <h3>Rénovation & câblage</h3>
+          <p>Reprise complète du câblage en cours de rénovation.</p>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -383,26 +410,32 @@ footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px}
     </div>
     <div class="reviews" data-reveal-group>
       <article class="review review-wide">
+        <div class="rstars" aria-label="5 sur 5"><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg></div>
         <blockquote>«&nbsp;J'ai fait appel aux services de Ata Renov Bat pour des travaux de rénovation et d'aménagement (dressing sur mesure, caisson home-cinéma, rénovation des murs &amp; plafonds…) et j'en suis pleinement satisfait, que ce soit au niveau tarif qu'au niveau humain. Le travail est de qualité&nbsp;!&nbsp;»</blockquote>
         <footer><div class="avatar">P</div><div><div class="who">Pierre Cangemi</div><div class="what">Rénovation &amp; aménagement</div></div></footer>
       </article>
       <article class="review">
+        <div class="rstars" aria-label="5 sur 5"><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg></div>
         <blockquote>«&nbsp;Great work at the right price. Will call ATA again with my next project.&nbsp;»</blockquote>
         <footer><div class="avatar">J</div><div><div class="who">Jacob Nielsen</div><div class="what">Travaux d'électricité générale</div></div></footer>
       </article>
       <article class="review">
+        <div class="rstars" aria-label="5 sur 5"><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg></div>
         <blockquote>«&nbsp;Travail très soigné et professionnel attentionné&nbsp;! Je ne peux que recommander cet artisan pour tous types de travaux, je referais appel sans nul doute&nbsp;!&nbsp;»</blockquote>
         <footer><div class="avatar">M</div><div><div class="who">Marc Pey</div><div class="what">Fils de terre · Modification d'installations</div></div></footer>
       </article>
       <article class="review review-wide">
+        <div class="rstars" aria-label="5 sur 5"><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg></div>
         <blockquote>«&nbsp;Très professionnel, réactif et de bons conseils quant à la sécurité électrique. Déjà plusieurs chantiers réalisés avec Ata et toujours de qualité, je recommande fortement.&nbsp;»</blockquote>
         <footer><div class="avatar">M</div><div><div class="who">Mathieu Parigot</div><div class="what">Fils de terre · Éclairages extérieurs</div></div></footer>
       </article>
       <article class="review">
+        <div class="rstars" aria-label="5 sur 5"><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg></div>
         <blockquote>«&nbsp;C'est une entreprise très à l'écoute, performante, et également fort sympathique, beaucoup de points positifs&nbsp;!!! Je les recommande grandement.&nbsp;»</blockquote>
         <footer><div class="avatar">J</div><div><div class="who">Jeremy Lemercier</div><div class="what">Réparation de prises et d'interrupteurs</div></div></footer>
       </article>
       <article class="review review-wide">
+        <div class="rstars" aria-label="5 sur 5"><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg><svg width="12" height="12" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M9.05 2.93c.3-.92 1.6-.92 1.9 0l1.07 3.29a1 1 0 00.95.69h3.46c.97 0 1.37 1.24.59 1.81l-2.8 2.03a1 1 0 00-.36 1.12l1.07 3.29c.3.92-.76 1.69-1.54 1.12l-2.8-2.03a1 1 0 00-1.18 0l-2.8 2.03c-.78.57-1.84-.2-1.54-1.12l1.07-3.29a1 1 0 00-.36-1.12L2.98 8.72c-.78-.57-.38-1.81.59-1.81h3.46a1 1 0 00.95-.69l1.07-3.29z"/></svg></div>
         <blockquote>«&nbsp;Très bon professionnel. Il est intervenu très rapidement à la suite de mon appel. Grande volonté de satisfaire son client et très agréable. Je recommande à 💯&nbsp;%. Pour mes prochains travaux, je ferai appel à lui.&nbsp;»</blockquote>
         <footer><div class="avatar">S</div><div><div class="who">Stephanie Froc</div><div class="what">Réparation de prises et d'interrupteurs</div></div></footer>
       </article>
@@ -578,9 +611,10 @@ footer.site{background:var(--ink);color:#B9C0C4;padding:56px 0 32px}
       gsap.from(img, { scale: 1.09, duration: 1.3, ease: 'power2.out', scrollTrigger: { trigger: img.closest('.fig'), start: 'top 90%' } });
     });
 
-    // Masonry drift: each column lane scrolls at a slightly different speed
-    gsap.utils.toArray('.works .work').forEach(function (el, i) {
-      gsap.to(el, { yPercent: -(2 + (i % 3) * 3), ease: 'none', scrollTrigger: { trigger: '.works', start: 'top bottom', end: 'bottom top', scrub: true } });
+    // Masonry lanes converge: columns enter offset, align exactly once in view
+    var laneOffsets = [42, 110, 68];
+    gsap.utils.toArray('.works .mcol').forEach(function (col, i) {
+      gsap.from(col, { y: laneOffsets[i % 3], ease: 'none', scrollTrigger: { trigger: '.works', start: 'top bottom', end: 'top 30%', scrub: true } });
     });
 
     // Outline numerals drift
